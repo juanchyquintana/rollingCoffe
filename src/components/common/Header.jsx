@@ -6,7 +6,7 @@ const Header = () => {
     <Navbar expand="lg" className="bg-body-tertiary shadow">
       <Container>
         <Navbar.Brand href="#home">
-            <img src={logoCoffe} alt="Logo Coffe" className="img-fluid" width={160} />
+            <img src={logoCoffe} alt="Logo Coffe" className="img-fluid" width={150} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
