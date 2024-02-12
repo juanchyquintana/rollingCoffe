@@ -8,9 +8,9 @@ function App() {
   return (
     <>
       <Header />
-        <Inicio />
+        {/* <Inicio /> */}
         {/* <Administrador /> */}
-        {/* <Error404 /> */}
+        <Error404 />
       <Footer />
     </>
   );
