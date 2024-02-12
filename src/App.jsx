@@ -9,8 +9,8 @@ function App() {
     <>
       <Header />
         {/* <Inicio /> */}
-        {/* <Administrador /> */}
-        <Error404 />
+        <Administrador />
+        {/* <Error404 /> */}
       <Footer />
     </>
   );
