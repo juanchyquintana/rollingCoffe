@@ -20,7 +20,7 @@ const CardProducto = () => {
           </Card.Body>
 
           <Card.Footer>
-            <Button variant="success">Ver más</Button>
+            
           </Card.Footer>
           </Card>
         </div>
