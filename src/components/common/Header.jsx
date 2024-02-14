@@ -14,8 +14,8 @@ const Header = () => {
           <Nav className="ms-auto text-center">
             <NavLink end className="nav-link" to="/">Inicio</NavLink>
             <NavLink end className="nav-link" to="/administrador">Administrador</NavLink>
-            <NavLink end className="nav-link" to="#link">Registro</NavLink>
-            <NavLink end className="nav-link" to="#link">Login</NavLink>
+            <NavLink end className="nav-link" to="/registrarse">Registro</NavLink>
+            <NavLink end className="nav-link" to="/login">Login</NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>
