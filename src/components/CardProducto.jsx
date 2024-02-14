@@ -1,4 +1,5 @@
 import { Button, Card } from "react-bootstrap"
+import cafeAmericano from "../assets/cafeAmericano.jpeg";
 
 const CardProducto = () => {
   return (
@@ -11,7 +12,7 @@ const CardProducto = () => {
 
         <div>
           <Card className="w-50">
-          <Card.Img variant="top" src="holder.js/100px180" />
+          <Card.Img variant="top" src={cafeAmericano} />
           <Card.Body>
             <Card.Title>Café Americano</Card.Title>
             <Card.Text>

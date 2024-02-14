@@ -3,15 +3,20 @@ import Header from "./components/common/Header";
 import Inicio from "./components/pages/Inicio";
 import Administrador from "./components/pages/Administrador";
 import Error404 from "./components/pages/Error404";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <Header />
-        {/* <Inicio /> */}
-        <Administrador />
-        {/* <Error404 /> */}
-      <Footer />
+      <BrowserRouter>
+        <Header />
+          <Routes>
+            <Route exact path="/" element={<Inicio />} />
+            <Route exact path="/administrador" element={<Administrador />} />
+            <Route path="*" element={<Error404 />} />
+          </Routes>
+        <Footer />
+      </BrowserRouter>
     </>
   );
 }
