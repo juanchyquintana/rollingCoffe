@@ -1,0 +1,22 @@
+{
+    "productos": [
+        {
+            "id": "1",
+            "nombreProducto": "café",
+            "precio": 250,
+            "categoria": "Infusiones",
+            "descripcionBreve": "Café Rico",
+            "descripcionAmplia": "Café Rico con más detalles",
+            "imagen": "url"
+        },
+        {
+            "id": "2",
+            "nombreProducto": "café negro",
+            "precio": 350,
+            "categoria": "Infusiones",
+            "descripcionBreve": "Café Rico y fuerte",
+            "descripcionAmplia": "Café Rico y fuerte con más detalles",
+            "imagen": "url"
+        }
+    ]
+}
