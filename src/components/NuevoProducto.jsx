@@ -1,19 +1,66 @@
 import { Button, Container, Form } from "react-bootstrap";
+import { useForm } from "react-hook-form";
 
 const NuevoProducto = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const productoValidado = (producto) => {
+    console.log(producto);
+  };
+
   return (
     <Container>
       <section className=" bg-white shadow rounded-5  p-3 my-4">
-        <Form>
+        <Form onSubmit={handleSubmit(productoValidado)}>
           <Form.Group className="mb-3">
             <Form.Label>Producto</Form.Label>
-            <Form.Control type="text" placeholder="Ej: Café" />
+            <Form.Control 
+              type="text" 
+              placeholder="Ej: Café" 
+              {...register('nombreProducto', {
+                required: "El Nombre del Producto es Obligatorio",
+                minLength: {
+                  value: 2,
+                  message: "El nombre del producto debe tener como minimo 2 caracteres"
+                },
+                maxLength: {
+                  value: 20,
+                  message: "El nombre del producto debe tener como máximo 20 caracteres"
+                }
+              })}
+            />
           </Form.Group>
+
+          <Form.Text className="text-danger">
+            {errors.nombreProducto?.message}
+          </Form.Text>
 
           <Form.Group className="mb-3">
             <Form.Label>Precio</Form.Label>
-            <Form.Control type="number" placeholder="Ej: $50" />
+            <Form.Control 
+              type="number" 
+              placeholder="Ej: $50"
+              {...register('precio', {
+                required: "El Precio es Obligatorio",
+                minLength: {
+                  value: 2,
+                  message: "El precio del producto debe tener como minimo 2 caracteres"
+                },
+                maxLength: {
+                  value: 5,
+                  message: "El precio del producto debe tener como máximo 5 caracteres"
+                }
+              })}
+            />
           </Form.Group>
+
+          <Form.Text className="text-danger">
+            {errors.precio?.message}
+          </Form.Text>
 
           <Form.Group className="mb-3">
             <Form.Label>Imagen URL</Form.Label>
@@ -48,7 +95,11 @@ const NuevoProducto = () => {
             />
           </Form.Group>
 
-          <Button variant="success" type="submit" className="w-100 my-2 fw-bold">
+          <Button
+            variant="success"
+            type="submit"
+            className="w-100 my-2 fw-bold"
+          >
             Guardar
           </Button>
         </Form>

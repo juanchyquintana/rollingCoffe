@@ -1,6 +1,5 @@
 const ItemProductos = ({ producto }) => {
   const { nombreProducto, id, precio, categoria, imagen } = producto;
-  console.log(producto);
 
   return (
     <tr>
