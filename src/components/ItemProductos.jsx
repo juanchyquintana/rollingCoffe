@@ -1,19 +1,20 @@
-import cafeAmericano from "../assets/cafeAmericano.jpeg";
+const ItemProductos = ({ producto }) => {
+  const { nombreProducto, id, precio, categoria, imagen } = producto;
+  console.log(producto);
 
-const ItemProductos = () => {
   return (
     <tr>
-      <td>1</td>
-      <td>Café Americano</td>
-      <td>$250</td>
+      <td>{id}</td>
+      <td>{nombreProducto}</td>
+      <td>{precio}</td>
       <td>
         <img
-          src={cafeAmericano}
-          alt="Café Americano"
+          src={imagen}
+          alt={`Esta es la imagen de ${nombreProducto}`}
           className="w-25 img-fluid"
         />
       </td>
-      <td>Bebida Caliente</td>
+      <td>{categoria}</td>
       <td>
         <div className="d-flex gap-2">
           <button className="btn btn-danger">

@@ -7,7 +7,7 @@
             "categoria": "Infusiones",
             "descripcionBreve": "Café Rico",
             "descripcionAmplia": "Café Rico con más detalles",
-            "imagen": "url"
+            "imagen": "https://images.pexels.com/photos/904616/pexels-photo-904616.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         },
         {
             "id": "2",
@@ -16,7 +16,7 @@
             "categoria": "Infusiones",
             "descripcionBreve": "Café Rico y fuerte",
             "descripcionAmplia": "Café Rico y fuerte con más detalles",
-            "imagen": "url"
+            "imagen": "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         }
     ]
 }
