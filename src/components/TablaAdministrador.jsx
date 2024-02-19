@@ -3,7 +3,7 @@ import ItemProductos from "./ItemProductos";
 
 const TablaAdministrador = () => {
   return (
-    <div>
+    <section>
       <Table responsive>
         <thead>
           <tr>
@@ -20,7 +20,7 @@ const TablaAdministrador = () => {
           <ItemProductos />
         </tbody>
       </Table>
-    </div>
+    </section>
   );
 };
 
