@@ -1,7 +1,16 @@
+import { useEffect, useState } from "react";
+import { leerProductosAPI } from "../../helpers/queries.js";
 import { Button, Container } from "react-bootstrap";
 import TablaAdministrador from "../TablaAdministrador";
 
 const Administrador = () => {
+
+  const [productos, setProductos] = useState([]) 
+
+  useEffect(() => {
+    leerProductosAPI()
+  }, [])
+
   return (
     <>
       <Container>
