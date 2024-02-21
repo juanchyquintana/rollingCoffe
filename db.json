@@ -19,15 +19,6 @@
       "imagen": "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg"
     },
     {
-      "id": "33d4",
-      "nombreProducto": "Cafe Rosado",
-      "precio": "1000",
-      "url": "https://images.pexels.com/photos/904616/pexels-photo-904616.jpeg",
-      "categoria": "infusiones",
-      "descrpcionBreve": "Deliciosamente diferente.",
-      "descripcionAmplia": "Una sorprendente fusión de granos seleccionados con un toque sutil de frutas del bosque, creando una experiencia única y deliciosa para los amantes del café más exigentes. Su suave aroma y sabor suavemente dulce lo convierten en una elección inigualable"
-    },
-    {
       "id": "6b4c",
       "nombreProducto": "Cafe Frío",
       "precio": "250",
