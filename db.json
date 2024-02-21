@@ -1,22 +1,22 @@
 {
-    "productos": [
-        {
-            "id": "1",
-            "nombreProducto": "café",
-            "precio": 250,
-            "categoria": "Infusiones",
-            "descripcionBreve": "Café Rico",
-            "descripcionAmplia": "Café Rico con más detalles",
-            "imagen": "https://images.pexels.com/photos/904616/pexels-photo-904616.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        },
-        {
-            "id": "2",
-            "nombreProducto": "café negro",
-            "precio": 350,
-            "categoria": "Infusiones",
-            "descripcionBreve": "Café Rico y fuerte",
-            "descripcionAmplia": "Café Rico y fuerte con más detalles",
-            "imagen": "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        }
-    ]
+  "productos": [
+    {
+      "id": "1",
+      "nombreProducto": "café",
+      "precio": 250,
+      "categoria": "Infusiones",
+      "descripcionBreve": "Café Rico",
+      "descripcionAmplia": "Café Rico con más detalles",
+      "imagen": "https://images.pexels.com/photos/904616/pexels-photo-904616.jpeg"
+    },
+    {
+      "id": "db93",
+      "nombreProducto": "Cafe Frío",
+      "precio": "100",
+      "url": "https://images.pexels.com/photos/8472242/pexels-photo-8472242.jpeg",
+      "categoria": "infusiones",
+      "descrpcionBreve": "Frescura concentrada.",
+      "descripcionAmplia": " Un deleite fresco y sofisticado, infusionado lentamente para resaltar su suave sabor a caramelo y chocolate, perfecto para disfrutar en cualquier momento del día."
+    }
+  ]
 }

@@ -11,4 +11,32 @@ const leerProductosAPI = async () => {
   }
 };
 
-export { leerProductosAPI };
+const crearProducto = async (datos) => {
+  try {
+    const respuesta = await fetch(productosAPI, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(datos),
+    });
+
+    return respuesta;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const eliminarProducto = async (id) => {
+  try {
+    const respuesta = await fetch(`${productosAPI}/${id}`, {
+      method: "DELETE",
+    });
+
+    return respuesta;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export { leerProductosAPI, crearProducto, eliminarProducto };
