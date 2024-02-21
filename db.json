@@ -26,15 +26,6 @@
       "categoria": "infusiones",
       "descrpcionBreve": "Frescura concentrada",
       "descripcionAmplia": "Un deleite fresco y sofisticado, infusionado lentamente para resaltar su suave sabor a caramelo y chocolate, perfecto para disfrutar en cualquier momento del día."
-    },
-    {
-      "id": "63d9",
-      "nombreProducto": "Broniew",
-      "precio": "60",
-      "url": "https://images.pexels.com/photos/3026804/pexels-photo-3026804.jpeg",
-      "categoria": "dulce",
-      "descrpcionBreve": "Dulzura compacta.",
-      "descripcionAmplia": "Un postre irresistible, con su mezcla perfecta de chocolate y nueces, horneado a la perfección para lograr una textura suave y un sabor intenso que deleitará tus sentidos en cada mordida."
     }
   ]
 }

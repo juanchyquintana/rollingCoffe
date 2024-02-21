@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 const ItemProductos = ({ producto }) => {
   const { nombreProducto, id, precio, categoria, imagen } = producto;
 
-  const borrarProducto = async () => {
+  const borrarProducto = () => {
     Swal.fire({
       title: "¿Estás seguro de eliminar el producto?",
       text: "No podrás revertir este proceso",
@@ -13,20 +13,26 @@ const ItemProductos = ({ producto }) => {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Borrar",
-      cancelButtonText: "Cancelar"
-    }).then((result) => {
+      cancelButtonText: "Cancelar",
+    }).then(async (result) => {
       if (result.isConfirmed) {
-
-        eliminarProducto(id);
-
-        Swal.fire({
-          title: "Eliminado",
-          text: `Has eliminado el producto: ${nombreProducto}`,
-          icon: "success"
-        });
+        const respuesta = await eliminarProducto(id);
+        if (respuesta.status === 200) {
+          Swal.fire({
+            title: "Eliminado",
+            text: `Has eliminado el producto: ${nombreProducto}`,
+            icon: "success",
+          });
+        }
+      } else {
+          Swal.fire({
+            title: "Ocurrió un Error",
+            text: `El producto ${nombreProducto} no fue eliminado. Intenta nuevamente.`,
+            icon: "error",
+          });
       }
     });
-  }
+  };
 
   return (
     <tr>
@@ -44,10 +50,7 @@ const ItemProductos = ({ producto }) => {
       <td>
         <div className="d-flex gap-2">
           <button className="btn btn-danger">
-            <i 
-              className="bi bi-trash-fill"
-              onClick={borrarProducto}
-            ></i>
+            <i className="bi bi-trash-fill" onClick={borrarProducto}></i>
           </button>
           <button className="btn btn-warning">
             <i className="bi bi-pencil-square"></i>
