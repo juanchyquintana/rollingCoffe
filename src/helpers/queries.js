@@ -20,9 +20,8 @@ const crearProducto = async (datos) => {
       },
       body: JSON.stringify(datos)
     });
-    const resultado = await respuesta.json()
-    console.log(resultado)
 
+    return respuesta
   } catch (error) {
     console.log(error);
   }
