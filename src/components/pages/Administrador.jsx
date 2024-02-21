@@ -25,9 +25,12 @@ const Administrador = () => {
         <section className="my-5">
           <div className="d-flex justify-content-between align-items-center mt-5">
             <h1 className="display-4 ">Productos disponibles</h1>
-              <Link to="/administrador/agregar-producto" className="btn btn-primary">
-                <i className="bi bi-file-earmark-plus"></i>
-              </Link>
+            <Link
+              to="/administrador/agregar-producto"
+              className="btn btn-primary"
+            >
+              <i className="bi bi-file-earmark-plus"></i>
+            </Link>
           </div>
 
           <hr />
@@ -46,7 +49,12 @@ const Administrador = () => {
 
             <tbody>
               {productos.map((producto) => (
-                <ItemProductos key={producto.id} producto={producto} />
+                <ItemProductos
+                  key={producto.id}
+                  producto={producto}
+                  setProductos={setProductos}
+                  productos={productos}
+                />
               ))}
             </tbody>
           </Table>

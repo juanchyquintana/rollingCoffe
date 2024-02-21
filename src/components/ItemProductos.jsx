@@ -1,7 +1,7 @@
-import { eliminarProducto } from "../helpers/queries.js";
+import { eliminarProducto, leerProductosAPI } from "../helpers/queries.js";
 import Swal from "sweetalert2";
 
-const ItemProductos = ({ producto }) => {
+const ItemProductos = ({ producto, setProductos}) => {
   const { nombreProducto, id, precio, categoria, imagen } = producto;
 
   const borrarProducto = () => {
@@ -24,12 +24,15 @@ const ItemProductos = ({ producto }) => {
             icon: "success",
           });
         }
+        
+        const listadoProducto = await leerProductosAPI()
+        setProductos(listadoProducto)
       } else {
-          Swal.fire({
-            title: "Ocurrió un Error",
-            text: `El producto ${nombreProducto} no fue eliminado. Intenta nuevamente.`,
-            icon: "error",
-          });
+        Swal.fire({
+          title: "Ocurrió un Error",
+          text: `El producto ${nombreProducto} no fue eliminado. Intenta nuevamente.`,
+          icon: "error",
+        });
       }
     });
   };
