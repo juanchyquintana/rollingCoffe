@@ -1,22 +1,31 @@
 {
-    "productos": [
-        {
-            "id": "1",
-            "nombreProducto": "café",
-            "precio": 250,
-            "categoria": "Infusiones",
-            "descripcionBreve": "Café Rico",
-            "descripcionAmplia": "Café Rico con más detalles",
-            "imagen": "https://images.pexels.com/photos/904616/pexels-photo-904616.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        },
-        {
-            "id": "2",
-            "nombreProducto": "café negro",
-            "precio": 350,
-            "categoria": "Infusiones",
-            "descripcionBreve": "Café Rico y fuerte",
-            "descripcionAmplia": "Café Rico y fuerte con más detalles",
-            "imagen": "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        }
-    ]
+  "productos": [
+    {
+      "id": "1",
+      "nombreProducto": "café",
+      "precio": 250,
+      "categoria": "Infusiones",
+      "descripcionBreve": "Café Rico",
+      "descripcionAmplia": "Café Rico con más detalles",
+      "imagen": "https://images.pexels.com/photos/904616/pexels-photo-904616.jpeg"
+    },
+    {
+      "id": "2",
+      "nombreProducto": "café negro",
+      "precio": 350,
+      "categoria": "Infusiones",
+      "descripcionBreve": "Café Rico y fuerte",
+      "descripcionAmplia": "Café Rico y fuerte con más detalles",
+      "imagen": "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg"
+    },
+    {
+      "id": "33d4",
+      "nombreProducto": "Cafe Rosado",
+      "precio": "1000",
+      "url": "https://images.pexels.com/photos/2067432/pexels-photo-2067432.jpeg",
+      "categoria": "infusiones",
+      "descrpcionBreve": "Deliciosamente diferente.",
+      "descripcionAmplia": "Una sorprendente fusión de granos seleccionados con un toque sutil de frutas del bosque, creando una experiencia única y deliciosa para los amantes del café más exigentes. Su suave aroma y sabor suavemente dulce lo convierten en una elección inigualable"
+    }
+  ]
 }

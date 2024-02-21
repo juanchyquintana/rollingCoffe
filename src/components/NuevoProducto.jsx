@@ -1,4 +1,5 @@
 import { Button, Container, Form } from "react-bootstrap";
+import { crearProducto } from "../helpers/queries";
 import { useForm } from "react-hook-form";
 
 const NuevoProducto = () => {
@@ -9,7 +10,7 @@ const NuevoProducto = () => {
   } = useForm();
 
   const productoValidado = (producto) => {
-    console.log(producto);
+    crearProducto(producto);
   };
 
   return (
@@ -48,15 +49,15 @@ const NuevoProducto = () => {
               placeholder="Ej: $50"
               {...register("precio", {
                 required: "El Precio es Obligatorio",
-                minLength: {
-                  value: 2,
+                min: {
+                  value: 50,
                   message:
-                    "El precio del producto debe tener como minimo 2 caracteres",
+                    "El precio del producto debe tener un precio minimo de $50 caracteres",
                 },
-                maxLength: {
-                  value: 5,
+                max: {
+                  value: 10000,
                   message:
-                    "El precio del producto debe tener como máximo 5 caracteres",
+                    "El precio del producto debe tener un precio máximo de $10000 caracteres",
                 },
               })}
             />
@@ -70,9 +71,13 @@ const NuevoProducto = () => {
             <Form.Label>Imagen URL</Form.Label>
             <Form.Control
               type="url"
-              placeholder="Ej: https://www.pexels.com/es-es/foto/sillas-de-cuero-en-restaurante-2193600/"
+              placeholder="Ej: https://www.pexels.com/es-es/vans-en-blanco-y-negro-fuera-de-la-decoracion-para-colgar-en-la-pared-1230679/"
               {...register("url", {
-                required: "La URL de la imagen es obligatoria",
+                required: "La imagen es obligatoria",
+                pattern: {
+                  value: /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|jpeg|gif|png)/,
+                  message: "Debe ingresar una URL valida (jpg|jpeg|gif|png)",
+                },
               })}
             />
           </Form.Group>
@@ -86,8 +91,11 @@ const NuevoProducto = () => {
                 required: "Selecciona una Categoría",
               })}
             >
-              <option value="">-- Seleccione una Opción --</option>
-              <option value="cafe rosa">Cafe Rosa</option>
+              <option value="" hidden>-- Seleccione una Opción --</option>
+              <option value="infusiones">Infusiones</option>
+              <option value="batidos">Batidos</option>
+              <option value="dulce">Dulce</option>
+              <option value="salado">Salado</option>
             </Form.Select>
           </Form.Group>
 
@@ -104,12 +112,12 @@ const NuevoProducto = () => {
               {...register("descrpcionBreve", {
                 required: "La Descripcion Breve es Obligatoria",
                 minLength: {
-                  value: 50,
+                  value: 5,
                   message:
                     "La Descripcion Breve del producto debe tener como minimo 25 caracteres",
                 },
                 maxLength: {
-                  value: 600,
+                  value: 50,
                   message:
                     "La Descripcion Breve del producto debe tener como máximo 120 caracteres",
                 },
@@ -130,12 +138,12 @@ const NuevoProducto = () => {
               {...register("descripcionAmplia", {
                 required: "La Descripcion Amplia es Obligatoria",
                 minLength: {
-                  value: 25,
+                  value: 50,
                   message:
                     "La Descripcion Amplia del producto debe tener como minimo 25 caracteres",
                 },
                 maxLength: {
-                  value: 120,
+                  value: 300,
                   message:
                     "La Descripcion Amplia del producto debe tener como máximo 120 caracteres",
                 },
