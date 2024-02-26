@@ -1,13 +1,13 @@
 {
   "productos": [
     {
-      "id": "db93",
-      "nombreProducto": "Cafe Frío",
-      "precio": "100",
+      "nombreProducto": "Cafe con Leche",
+      "precio": "250",
       "imagen": "https://images.pexels.com/photos/8472242/pexels-photo-8472242.jpeg",
       "categoria": "infusiones",
-      "descrpcionBreve": "Frescura concentrada.",
-      "descripcionAmplia": " Un deleite fresco y sofisticado, infusionado lentamente para resaltar su suave sabor a caramelo y chocolate, perfecto para disfrutar en cualquier momento del día."
+      "descripcionBreve": " Un deleite fresco y sofisticado.",
+      "descripcionAmplia": " Un deleite fresco y sofisticado, infusionado lentamente para resaltar su suave sabor a caramelo y chocolate, perfecto para disfrutar en cualquier momento del día.",
+      "id": "db93"
     },
     {
       "nombreProducto": "brownie",
@@ -19,13 +19,13 @@
       "id": "93f2"
     },
     {
-      "id": "c0fb",
       "nombreProducto": "Tortilla Delgada",
-      "precio": "65",
+      "precio": "70",
       "imagen": "https://images.pexels.com/photos/14122642/pexels-photo-14122642.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "categoria": "salado",
       "descripcionBreve": "asdasdasdsadsadsadsadasdasdasdasdasdasdasdsa",
-      "descripcionAmplia": "dasdasdasasdasdasdasddasdasdasasdasdasdasddasdasdasasdasdasdasddasdasdasasdasdasdasddasdasdasasdasdasdasddasdasdasasdasdasdasddasdasdasasdasdasdasddasdasdasasdasdasdasddasdasdasasdasdasdasddasdasdasasdasdasdasd"
+      "descripcionAmplia": "dasdasdasasdasdasdasddasdasdasasdasdasdasddasdasdasasdasdasdasddasdasdasasdasdasdasddasdasdasasdasdasdasddasdasdasasdasdasdasddasdasdasasdasdasdasddasdasdasasdasdasdasddasdasdasasdasdasdasddasdasdasasdasdasdasd",
+      "id": "c0fb"
     }
   ]
 }

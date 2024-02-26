@@ -2,7 +2,7 @@ import { Button, Container, Form } from "react-bootstrap";
 import { crearProducto, editarProductoAPI, obtenerProductosAPI } from "../helpers/queries";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
-import { useParams } from "react-router";
+import { useParams, useNavigate } from "react-router";
 import { useEffect } from "react";
 
 const NuevoProducto = ({ editar, titulo }) => {
@@ -14,9 +14,30 @@ const NuevoProducto = ({ editar, titulo }) => {
     setValue
   } = useForm();
 
+  const navegacion = useNavigate()
+
   const productoValidado = async (producto) => {
     if (editar) {
-      editarProductoAPI(producto, id)
+      const respuesta = await editarProductoAPI(producto, id)
+      const { nombreProducto } = producto;
+
+      if(respuesta.status === 200) {
+        Swal.fire({
+          title: "Producto Editado",
+          text: `El ${nombreProducto} se editó correctamente`,
+          icon: "success",
+        });
+
+        navegacion('/administrador')
+      } else {
+        Swal.fire({
+          title: "Error al Editar el Producto",
+          text: `El ${nombreProducto} no pudo se puedo editar. Intente nuevamente`,
+          icon: "error",
+        });
+      }
+      
+
     } else {
       const respuesta = await crearProducto(producto);
       const { nombreProducto } = producto;
@@ -49,7 +70,7 @@ const NuevoProducto = ({ editar, titulo }) => {
         setValue('precio', resultado.precio)
         setValue('imagen', resultado.imagen)
         setValue('categoria', resultado.categoria)
-        setValue('descripcionBreve', resultado.descrpcionBreve)
+        setValue('descripcionBreve', resultado.descripcionBreve)
         setValue('descripcionAmplia', resultado.descripcionAmplia)
       }
     } catch (error) {
