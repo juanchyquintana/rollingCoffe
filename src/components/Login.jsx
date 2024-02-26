@@ -1,5 +1,7 @@
 import { Button, Container, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { login } from "../helpers/queries.js";
+import Swal from "sweetalert2";
 
 const Login = () => {
 
@@ -7,10 +9,23 @@ const Login = () => {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm();
 
-  const iniciarSesion = () => {}
+  const iniciarSesion = (usuario) => {
+    if(login(usuario)) {
+      Swal.fire({
+        title: "Producto Creado",
+        text: `Bienvenido ${usuario.correo}`,
+        icon: "success",
+      });
+    } else {
+      Swal.fire({
+        title: "Producto Creado",
+        text: `El nombre usuario o password es incorrecto`,
+        icon: "success",
+      });
+    }
+  }
 
   return (
     <section>
@@ -23,6 +38,20 @@ const Login = () => {
               placeholder="Ej: correo@corre.com"
               {...register("correo", {
                 required: "El Correo es Obligatorio",
+                minLength: {
+                  value: 4,
+                  message: "El email debe contener al menos 4 caracteres",
+                },
+                maxLength: {
+                  value: 250,
+                  message:
+                    "El email debe contener como máximo 250 caracteres",
+                },
+                pattern: {
+                  value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/,
+                  message:
+                    "Ingrese una dirección de correo electrónico válida",
+                },
               })}
             />
 
@@ -38,21 +67,10 @@ const Login = () => {
               type="password" 
               placeholder="Ingrese su Contraseña"
               {...register("password", {
-                required: "El Password es Obligatorio",
                 minLength: {
                   value: 4,
-                  message: "El email debe contener al menos 4 caracteres",
-                },
-                maxLength: {
-                  value: 250,
-                  message:
-                    "El email debe contener como máximo 250 caracteres",
-                },
-                pattern: {
-                  value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/,
-                  message:
-                    "Ingrese una dirección de correo electrónico válida",
-                },
+                  message: "El password debe contener al menos 4 caracteres",
+                }
               })}
             />
           </Form.Group>
