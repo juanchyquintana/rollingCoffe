@@ -1,5 +1,5 @@
 import { Button, Container, Form } from "react-bootstrap";
-import { crearProducto, obtenerProductosAPI } from "../helpers/queries";
+import { crearProducto, editarProductoAPI, obtenerProductosAPI } from "../helpers/queries";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router";
@@ -11,11 +11,12 @@ const NuevoProducto = ({ editar, titulo }) => {
     handleSubmit,
     formState: { errors },
     reset,
+    setValue
   } = useForm();
 
   const productoValidado = async (producto) => {
     if (editar) {
-      console.log("Editando...");
+      editarProductoAPI(producto, id)
     } else {
       const respuesta = await crearProducto(producto);
       const { nombreProducto } = producto;
@@ -44,7 +45,12 @@ const NuevoProducto = ({ editar, titulo }) => {
       const respuesta = await obtenerProductosAPI(id)
       if(respuesta.status === 200) {
         const resultado = await respuesta.json()
-        return resultado;
+        setValue('nombreProducto', resultado.nombreProducto)
+        setValue('precio', resultado.precio)
+        setValue('imagen', resultado.imagen)
+        setValue('categoria', resultado.categoria)
+        setValue('descripcionBreve', resultado.descrpcionBreve)
+        setValue('descripcionAmplia', resultado.descripcionAmplia)
       }
     } catch (error) {
       console.log(error)
@@ -119,7 +125,7 @@ const NuevoProducto = ({ editar, titulo }) => {
               <Form.Control
                 type="url"
                 placeholder="Ej: https://www.pexels.com/es-es/vans-en-blanco-y-negro-fuera-de-la-decoracion-para-colgar-en-la-pared-1230679/"
-                {...register("url", {
+                {...register("imagen", {
                   required: "La imagen es obligatoria",
                   pattern: {
                     value: /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|jpeg|gif|png)/,
@@ -129,7 +135,7 @@ const NuevoProducto = ({ editar, titulo }) => {
               />
             </Form.Group>
 
-            <Form.Text className="text-danger">{errors.url?.message}</Form.Text>
+            <Form.Text className="text-danger">{errors.imagen?.message}</Form.Text>
 
             <Form.Group className="mb-3">
               <Form.Label>Categoría</Form.Label>
@@ -158,7 +164,7 @@ const NuevoProducto = ({ editar, titulo }) => {
                 as="textarea"
                 placeholder="Ej: Una taza de café suave y aromático"
                 className="w-100"
-                {...register("descrpcionBreve", {
+                {...register("descripcionBreve", {
                   required: "La Descripcion Breve es Obligatoria",
                   minLength: {
                     value: 5,
@@ -175,7 +181,7 @@ const NuevoProducto = ({ editar, titulo }) => {
             </Form.Group>
 
             <Form.Text className="text-danger">
-              {errors.descrpcionBreve?.message}
+              {errors.descripcionBreve?.message}
             </Form.Text>
 
             <Form.Group className="mb-3">
