@@ -6,6 +6,7 @@ import Error404 from "./components/pages/Error404";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DetalleProducto from "./components/DetalleProducto";
 import NuevoProducto from "./components/NuevoProducto";
+import Login from "./components/Login";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Inicio />} />
             <Route exact path="/administrador" element={<Administrador />} />
-            <Route exact path="/detalle-producto" element={<DetalleProducto />} />
+            <Route exact path="/login" element={<Login />} />
             <Route exact path="/administrador/agregar-producto" editar={false} element={<NuevoProducto />} />
             <Route exact path="/administrador/editar-producto/:id" editar={true} element={<NuevoProducto />} />
             <Route path="*" element={<Error404 />} />
