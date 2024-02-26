@@ -21,7 +21,7 @@ const CardProducto = () => {
           </Card.Body>
 
           <Card.Footer>
-            <Button variant="success">Ver más</Button>
+            <Button variant="success"></Button>
           </Card.Footer>
           </Card>
         </div>

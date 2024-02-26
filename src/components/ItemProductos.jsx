@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { eliminarProducto, leerProductosAPI } from "../helpers/queries.js";
 import Swal from "sweetalert2";
 
@@ -55,9 +56,9 @@ const ItemProductos = ({ producto, setProductos}) => {
           <button className="btn btn-danger">
             <i className="bi bi-trash-fill" onClick={borrarProducto}></i>
           </button>
-          <button className="btn btn-warning">
+          <Link className="btn btn-warning" to={`/administrador/editar-producto/${id}`}>
             <i className="bi bi-pencil-square"></i>
-          </button>
+          </Link>
         </div>
       </td>
     </tr>
