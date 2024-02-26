@@ -17,6 +17,15 @@
       "categoria": "infusiones",
       "descrpcionBreve": "Frescura concentrada.",
       "descripcionAmplia": " Un deleite fresco y sofisticado, infusionado lentamente para resaltar su suave sabor a caramelo y chocolate, perfecto para disfrutar en cualquier momento del día."
+    },
+    {
+      "id": "93f2",
+      "nombreProducto": "brownie",
+      "precio": "359",
+      "url": "https://images.pexels.com/photos/45202/brownie-dessert-cake-sweet-45202.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "categoria": "dulce",
+      "descrpcionBreve": "sadasdssadsaasdsadasdasdasdasdas",
+      "descripcionAmplia": "sadasdssadsaasdsadasdasdasdasdassadasdssadsaasdsadasdasdasdasdassadasdssadsaasdsadasdasdasdasdassadasdssadsaasdsadasdasdasdasdassadasdssadsaasdsadasdasdasdasdassadasdssadsaasdsadasdasdasdasdassadasdssadsaasdsadasdasdasdasdas"
     }
   ]
 }

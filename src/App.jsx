@@ -16,9 +16,8 @@ function App() {
             <Route exact path="/" element={<Inicio />} />
             <Route exact path="/administrador" element={<Administrador />} />
             <Route exact path="/detalle-producto" element={<DetalleProducto />} />
-            <Route exact path="/administrador/agregar-producto" element={<NuevoProducto />} />
-            {/* <Route exact path="/registrarse" element={<Administrador />} />
-            <Route exact path="/login" element={<Administrador />} /> */}
+            <Route exact path="/administrador/agregar-producto" editar={false} element={<NuevoProducto />} />
+            <Route exact path="/administrador/editar-producto/:id" editar={true} element={<NuevoProducto />} />
             <Route path="*" element={<Error404 />} />
           </Routes>
         <Footer />

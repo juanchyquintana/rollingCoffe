@@ -1,35 +1,43 @@
 import { Button, Container, Form } from "react-bootstrap";
 import { crearProducto } from "../helpers/queries";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
+import { useParams } from "react-router";
 
-const NuevoProducto = () => {
+const NuevoProducto = ({ editar }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset
+    reset,
   } = useForm();
 
   const productoValidado = async (producto) => {
-    const respuesta = await crearProducto(producto);
-    const { nombreProducto } = producto 
-
-    if(respuesta.status === 201) {
-      Swal.fire({
-        title: "Producto Creado",
-        text: `El ${nombreProducto} se guardó correctamente` ,
-        icon: "success"
-      });
-      reset()
+    if (editar) {
+      console.log("Editando...");
     } else {
-      Swal.fire({
-        title: "Error al Crear el Producto",
-        text: `El ${nombreProducto} no pudo ser cargado. Intente nuevamente` ,
-        icon: "error"
-      });
+      const respuesta = await crearProducto(producto);
+      const { nombreProducto } = producto;
+
+      if (respuesta.status === 201) {
+        Swal.fire({
+          title: "Producto Creado",
+          text: `El ${nombreProducto} se guardó correctamente`,
+          icon: "success",
+        });
+        reset();
+      } else {
+        Swal.fire({
+          title: "Error al Crear el Producto",
+          text: `El ${nombreProducto} no pudo ser cargado. Intente nuevamente`,
+          icon: "error",
+        });
+      }
     }
   };
+
+  const params = useParams()
+  console.log(params.id)
 
   return (
     <Container>
@@ -109,7 +117,9 @@ const NuevoProducto = () => {
                 required: "Selecciona una Categoría",
               })}
             >
-              <option value="" hidden>-- Seleccione una Opción --</option>
+              <option value="" hidden>
+                -- Seleccione una Opción --
+              </option>
               <option value="infusiones">Infusiones</option>
               <option value="batidos">Batidos</option>
               <option value="dulce">Dulce</option>
