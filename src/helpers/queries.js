@@ -65,10 +65,25 @@ const editarProductoAPI = async (productoModificado, id) => {
   }
 };
 
+const userAdmin = {
+  correo: 'correo@correo.com',
+  password: 'deka2009'
+}
+
+const login = (usuario) => {
+  if(usuario.correo === userAdmin.correo && usuario.password === userAdmin.password) {
+    sessionStorage.setItem('adminKeyCoffe', JSON.stringify(usuario.correo))
+    return true
+  } else {
+    return false
+  }
+}
+
 export {
   leerProductosAPI,
   crearProducto,
   eliminarProducto,
   obtenerProductosAPI,
-  editarProductoAPI
+  editarProductoAPI,
+  login
 };

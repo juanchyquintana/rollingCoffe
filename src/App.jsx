@@ -4,7 +4,6 @@ import Inicio from "./components/pages/Inicio";
 import Administrador from "./components/pages/Administrador";
 import Error404 from "./components/pages/Error404";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import DetalleProducto from "./components/DetalleProducto";
 import NuevoProducto from "./components/NuevoProducto";
 import Login from "./components/Login";
 
