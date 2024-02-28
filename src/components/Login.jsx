@@ -2,8 +2,9 @@ import { Button, Container, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { login } from "../helpers/queries.js";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ setUsuarioLogeado }) => {
 
   const {
     register,
@@ -11,18 +12,22 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
+  const navegacion = useNavigate()
+
   const iniciarSesion = (usuario) => {
     if(login(usuario)) {
       Swal.fire({
-        title: "Producto Creado",
+        title: "Inicio Exitoso",
         text: `Bienvenido ${usuario.correo}`,
         icon: "success",
       });
+      navegacion('/administrador')
+      setUsuarioLogeado(usuario.correo)
     } else {
       Swal.fire({
-        title: "Producto Creado",
+        title: "Error!",
         text: `El nombre usuario o password es incorrecto`,
-        icon: "success",
+        icon: "error",
       });
     }
   }
