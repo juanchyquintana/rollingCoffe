@@ -1,8 +1,24 @@
 import { Container, Row } from "react-bootstrap";
 import banner from "../../assets/banner.png";
 import CardProducto from "../CardProducto";
+import { useEffect, useState } from "react";
+import { leerProductosAPI } from "../../helpers/queries";
 
 const Inicio = () => {
+
+  const [productos, setProductos] = useState([]);
+
+  useEffect(() => {
+    const consultarAPI = async () => {
+      try {
+        const respuesta = await leerProductosAPI();
+        setProductos(respuesta);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    consultarAPI();
+  }, []);
   return (
     <section className="mainPage">
         <img
@@ -13,7 +29,13 @@ const Inicio = () => {
 
         <Container>
           <Row>
-            <CardProducto />
+
+            {productos.slice(0, 3).map( producto => (
+              <CardProducto 
+                key={producto.id}
+                producto={producto}
+              />
+            ))}
           </Row>
         </Container>
       </section>

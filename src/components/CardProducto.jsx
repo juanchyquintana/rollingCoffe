@@ -1,7 +1,9 @@
 import { Button, Card } from "react-bootstrap"
 import cafeAmericano from "../assets/cafeAmericano.jpeg";
 
-const CardProducto = () => {
+const CardProducto = ({ producto }) => {
+
+  const { imagen, nombreProducto, descripcionBreve } = producto
   return (
     <>
       <section className="my-5">
@@ -12,16 +14,16 @@ const CardProducto = () => {
 
         <div>
           <Card className="w-50">
-          <Card.Img variant="top" src={cafeAmericano} />
+          <Card.Img variant="top" src={imagen} />
           <Card.Body>
-            <Card.Title>Café Americano</Card.Title>
+            <Card.Title>{nombreProducto}</Card.Title>
             <Card.Text>
-              Una taza de café suave y aromático
+              {descripcionBreve}
             </Card.Text>
           </Card.Body>
 
           <Card.Footer>
-            <Button variant="success"></Button>
+            <Button variant="success">Ver Más</Button>
           </Card.Footer>
           </Card>
         </div>
