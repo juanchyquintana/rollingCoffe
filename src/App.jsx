@@ -15,7 +15,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Header />
+        <Header usuarioLogeado={usuarioLogeado} setUsuarioLogeado={setUsuarioLogeado} />
           <Routes>
             <Route exact path="/" element={<Inicio />} />
             <Route exact path="/administrador" element={<Administrador />} />
