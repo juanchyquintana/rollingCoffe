@@ -72,7 +72,7 @@ const userAdmin = {
 
 const login = (usuario) => {
   if(usuario.correo === userAdmin.correo && usuario.password === userAdmin.password) {
-    sessionStorage.setItem('adminKeyCoffe', JSON.stringify(usuario.correo))
+    sessionStorage.setItem('adminKeyRecetas', JSON.stringify(usuario.correo))
     return true
   } else {
     return false
