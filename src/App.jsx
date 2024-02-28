@@ -1,25 +1,42 @@
 import Footer from "./components/common/Footer";
 import Header from "./components/common/Header";
 import Inicio from "./components/pages/Inicio";
-import Administrador from "./components/pages/Administrador";
 import Error404 from "./components/pages/Error404";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import NuevoProducto from "./components/NuevoProducto";
 import Login from "./components/Login";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
+import RutasProtegidas from "./components/routes/RutasProtegidas";
+import RutasAdministrador from "./components/routes/RutasAdministrador";
 
 function App() {
+  const usuario = sessionStorage.getItem("adminKeyCoffe") || "";
+  const [usuarioLogeado, setUsuarioLogeado] = useState(usuario);
+
   return (
     <>
       <BrowserRouter>
-        <Header />
-          <Routes>
-            <Route exact path="/" element={<Inicio />} />
-            <Route exact path="/administrador" element={<Administrador />} />
-            <Route exact path="/login" element={<Login />} />
-            <Route exact path="/administrador/agregar-producto" element={<NuevoProducto editar={false} titulo='Nuevo Producto' />} />
-            <Route exact path="/administrador/editar-producto/:id" element={<NuevoProducto editar={true} titulo='Editar Producto' />} />
-            <Route path="*" element={<Error404 />} />
-          </Routes>
+        <Header
+          usuarioLogeado={usuarioLogeado}
+          setUsuarioLogeado={setUsuarioLogeado}
+        />
+        <Routes>
+          <Route exact path="/" element={<Inicio />} />
+          <Route
+            exact
+            path="/administrador/*"
+            element={
+              <RutasProtegidas>
+                <RutasAdministrador />
+              </RutasProtegidas>
+            }
+          />
+          <Route
+            exact
+            path="/login"
+            element={<Login setUsuarioLogeado={setUsuarioLogeado} />}
+          />
+          <Route path="*" element={<Error404 />} />
+        </Routes>
         <Footer />
       </BrowserRouter>
     </>
