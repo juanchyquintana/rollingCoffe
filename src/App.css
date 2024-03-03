@@ -12,3 +12,7 @@
   height: 450px;
   object-fit: cover;
 }
+
+#imagenCard {
+  height: 200px;
+}
