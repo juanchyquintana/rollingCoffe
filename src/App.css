@@ -1,0 +1,18 @@
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.mainPage {
+  flex-grow: 1;
+}
+
+.banner {
+  height: 450px;
+  object-fit: cover;
+}
+
+#imagenCard {
+  height: 200px;
+}
