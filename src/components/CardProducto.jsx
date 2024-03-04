@@ -1,20 +1,15 @@
-import { Button, Card } from "react-bootstrap"
-import cafeAmericano from "../assets/cafeAmericano.jpeg";
+import { Button, Card, Col } from "react-bootstrap"
+import { Link } from "react-router-dom"
 
 const CardProducto = ({ producto }) => {
 
-  const { imagen, nombreProducto, descripcionBreve } = producto
+  const { imagen, nombreProducto, descripcionBreve, id } = producto
   return (
     <>
-      <section className="my-5">
+      <Col xs={12} md={6} lg={4}>
 
-        <div className="mb-3">
-          <h2>- Nuestros Productos -</h2>
-        </div>
-
-        <div>
-          <Card className="w-50">
-          <Card.Img variant="top" src={imagen} />
+          <Card style={{ width: "80%" }} className="mb-5 shadow border border-black">
+          <Card.Img variant="top" src={imagen} className=" img-thumbnail img-fluid" id="imagenCard" />
           <Card.Body>
             <Card.Title>{nombreProducto}</Card.Title>
             <Card.Text>
@@ -23,11 +18,10 @@ const CardProducto = ({ producto }) => {
           </Card.Body>
 
           <Card.Footer>
-            <Button variant="success">Ver Más</Button>
+            <Link className="btn btn-success" to={`/detalleProducto/${id}`}>Ver Más</Link>
           </Card.Footer>
           </Card>
-        </div>
-      </section>
+      </Col>
     </>
   )
 }

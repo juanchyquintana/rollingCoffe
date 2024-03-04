@@ -39,6 +39,9 @@ const Header = ({ usuarioLogeado, setUsuarioLogeado }) => {
               <NavLink end className="nav-link" to="/">
                 Inicio
               </NavLink>
+              <NavLink end className="nav-link" to="/productos">
+                Productos
+              </NavLink>
 
               {usuarioLogeado !== "" ? (
                 <>

@@ -7,6 +7,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import RutasProtegidas from "./components/routes/RutasProtegidas";
 import RutasAdministrador from "./components/routes/RutasAdministrador";
+import DetalleProducto from './components/DetalleProducto'
+import Productos from "./components/pages/Productos";
 
 function App() {
   const usuario = sessionStorage.getItem("adminKeyCoffe") || "";
@@ -35,6 +37,9 @@ function App() {
             path="/login"
             element={<Login setUsuarioLogeado={setUsuarioLogeado} />}
           />
+          <Route exact path="/productos" element={<Productos />} />
+          <Route exact path="/detalleProducto" element={<DetalleProducto />} />
+          <Route exact path="/detalleProducto/:id" element={<DetalleProducto />} />
           <Route path="*" element={<Error404 />} />
         </Routes>
         <Footer />
