@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 const CardProducto = ({ producto }) => {
 
-  const { imagen, nombreProducto, descripcionBreve, id } = producto
+  const { imagen, nombreProducto, descripcionBreve, _id } = producto
   return (
     <>
       <Col xs={12} md={6} lg={4}>
@@ -18,7 +18,7 @@ const CardProducto = ({ producto }) => {
           </Card.Body>
 
           <Card.Footer>
-            <Link className="btn btn-success" to={`/detalleProducto/${id}`}>Ver Más</Link>
+            <Link className="btn btn-success" to={`/detalleProducto/${_id}`}>Ver Más</Link>
           </Card.Footer>
           </Card>
       </Col>

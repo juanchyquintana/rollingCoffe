@@ -15,7 +15,7 @@ const DetalleProducto = () => {
   const consultarAPI = async () => {
     try {
       const respuesta = await leerProductosAPI();
-      const productoEncontrado = respuesta.find((producto) => producto.id === id);
+      const productoEncontrado = respuesta.find((producto) => producto._id === id);
       setProductos(productoEncontrado);
     } catch (error) {
       console.log(error);
