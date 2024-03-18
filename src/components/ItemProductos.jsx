@@ -3,7 +3,7 @@ import { eliminarProducto, leerProductosAPI } from "../helpers/queries.js";
 import Swal from "sweetalert2";
 
 const ItemProductos = ({ producto, setProductos}) => {
-  const { nombreProducto, id, precio, categoria, imagen } = producto;
+  const { nombreProducto, _id, precio, categoria, imagen } = producto;
 
   const borrarProducto = () => {
     Swal.fire({
@@ -17,7 +17,7 @@ const ItemProductos = ({ producto, setProductos}) => {
       cancelButtonText: "Cancelar",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        const respuesta = await eliminarProducto(id);
+        const respuesta = await eliminarProducto(_id);
         if (respuesta.status === 200) {
           Swal.fire({
             title: "Eliminado",
@@ -40,7 +40,6 @@ const ItemProductos = ({ producto, setProductos}) => {
 
   return (
     <tr>
-      <td>{id}</td>
       <td>{nombreProducto}</td>
       <td>{precio}</td>
       <td>
@@ -56,7 +55,7 @@ const ItemProductos = ({ producto, setProductos}) => {
           <button className="btn btn-danger">
             <i className="bi bi-trash-fill" onClick={borrarProducto}></i>
           </button>
-          <Link className="btn btn-warning" to={`/administrador/editar-producto/${id}`}>
+          <Link className="btn btn-warning" to={`/administrador/editar-producto/${_id}`}>
             <i className="bi bi-pencil-square"></i>
           </Link>
         </div>

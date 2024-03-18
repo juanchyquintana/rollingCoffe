@@ -38,7 +38,6 @@ const Administrador = () => {
           <Table responsive>
             <thead>
               <tr>
-                <th>Cod</th>
                 <th>Productos</th>
                 <th>Precio</th>
                 <th>URL de Imagen</th>
@@ -50,7 +49,7 @@ const Administrador = () => {
             <tbody>
               {productos.map((producto) => (
                 <ItemProductos
-                  key={producto.id}
+                  key={producto._id}
                   producto={producto}
                   setProductos={setProductos}
                   productos={productos}
