@@ -1,8 +1,24 @@
-# React + Vite
+# Rolling Coffe
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto fue creado con React y demás dependencias para lograr un frontend fuerte para luego realizar pruebas con json-server. Por otro lado, se creó un backend para conectarlo posteriormente. Para ello tendrán que clonar el repositorio del backend.
 
-Currently, two official plugins are available:
+## Participantes del Proyecto 😄
+- Juan Diego Quintana ✅
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Librerías 📖
+- Boostrap v5.3.2
+- SweetAlert v2
+- React: 18.2.0,
+- React-bootstrap: 2.10.0
+- React-dom: 18.2.0
+- React-hook-form: 7.50.1
+- React-router-dom: 6.22.0
+- json-server": 1.0.0-alpha.23 (Inhabilitado)
+
+## Pasos para Clonar el Proyecto
+1. Abre la terminal en el lugar deseado.
+2. Copia y pega el siguiente código:
+3. Clona el backend del repositorio para que funcione
+
+   ```bash
+   git clone https://github.com/juanchyquintana/rollingCoffe
