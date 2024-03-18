@@ -1,5 +1,9 @@
 import { Button, Container, Form } from "react-bootstrap";
-import { crearProducto, editarProductoAPI, obtenerProductosAPI } from "../helpers/queries";
+import {
+  crearProducto,
+  editarProductoAPI,
+  obtenerProductosAPI,
+} from "../helpers/queries";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
 import { useParams, useNavigate } from "react-router";
@@ -11,24 +15,24 @@ const NuevoProducto = ({ editar, titulo }) => {
     handleSubmit,
     formState: { errors },
     reset,
-    setValue
+    setValue,
   } = useForm();
 
-  const navegacion = useNavigate()
+  const navegacion = useNavigate();
 
   const productoValidado = async (producto) => {
     if (editar) {
-      const respuesta = await editarProductoAPI(producto, id)
+      const respuesta = await editarProductoAPI(producto, id);
       const { nombreProducto } = producto;
 
-      if(respuesta.status === 200) {
+      if (respuesta.status === 200) {
         Swal.fire({
           title: "Producto Editado",
           text: `El ${nombreProducto} se editó correctamente`,
           icon: "success",
         });
 
-        navegacion('/administrador')
+        navegacion("/administrador");
       } else {
         Swal.fire({
           title: "Error al Editar el Producto",
@@ -36,8 +40,6 @@ const NuevoProducto = ({ editar, titulo }) => {
           icon: "error",
         });
       }
-      
-
     } else {
       const respuesta = await crearProducto(producto);
       const { nombreProducto } = producto;
@@ -63,26 +65,26 @@ const NuevoProducto = ({ editar, titulo }) => {
 
   const cargarDatosProductos = async () => {
     try {
-      const respuesta = await obtenerProductosAPI(id)
-      if(respuesta.status === 200) {
-        const resultado = await respuesta.json()
-        setValue('nombreProducto', resultado.nombreProducto)
-        setValue('precio', resultado.precio)
-        setValue('imagen', resultado.imagen)
-        setValue('categoria', resultado.categoria)
-        setValue('descripcionBreve', resultado.descripcionBreve)
-        setValue('descripcionAmplia', resultado.descripcionAmplia)
+      const respuesta = await obtenerProductosAPI(id);
+      if (respuesta.status === 200) {
+        const resultado = await respuesta.json();
+        setValue("nombreProducto", resultado.nombreProducto);
+        setValue("precio", resultado.precio);
+        setValue("imagen", resultado.imagen);
+        setValue("categoria", resultado.categoria);
+        setValue("descripcionBreve", resultado.descripcionBreve);
+        setValue("descripcionAmplia", resultado.descripcionAmplia);
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
-  
+  };
+
   useEffect(() => {
-    if(editar) {
-      cargarDatosProductos()
+    if (editar) {
+      cargarDatosProductos();
     }
-  }, [])
+  }, []);
 
   return (
     <>
@@ -104,7 +106,7 @@ const NuevoProducto = ({ editar, titulo }) => {
                       "El nombre del producto debe tener como minimo 2 caracteres",
                   },
                   maxLength: {
-                    value: 20,
+                    value: 50,
                     message:
                       "El nombre del producto debe tener como máximo 20 caracteres",
                   },
@@ -156,7 +158,9 @@ const NuevoProducto = ({ editar, titulo }) => {
               />
             </Form.Group>
 
-            <Form.Text className="text-danger">{errors.imagen?.message}</Form.Text>
+            <Form.Text className="text-danger">
+              {errors.imagen?.message}
+            </Form.Text>
 
             <Form.Group className="mb-3">
               <Form.Label>Categoría</Form.Label>

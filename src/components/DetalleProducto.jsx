@@ -1,5 +1,4 @@
 import { Card, Container, Row } from "react-bootstrap";
-import cafeAmericano from "../assets/cafeAmericano.jpeg";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { leerProductosAPI } from "../helpers/queries";
@@ -15,7 +14,7 @@ const DetalleProducto = () => {
   const consultarAPI = async () => {
     try {
       const respuesta = await leerProductosAPI();
-      const productoEncontrado = respuesta.find((producto) => producto.id === id);
+      const productoEncontrado = respuesta.find((producto) => producto._id === id);
       setProductos(productoEncontrado);
     } catch (error) {
       console.log(error);
